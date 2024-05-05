@@ -18,7 +18,13 @@ export const LiveStream = ({ channel }: LiveStreamProps) => {
         alt="spinner"
         className="invert absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[-1]"
       />
-      <TwitchPlayer channel={channel} height="100%" width="100%" id={channel} />
+      <TwitchPlayer
+        channel={channel}
+        muted
+        height="100%"
+        width="100%"
+        id={channel}
+      />
     </motion.div>
   );
 };
