@@ -29,7 +29,7 @@ export const Sidebar = () => {
           alt="Deep Dip 2"
         />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-1 flex-col gap-2">
         {streamers.map((s) => (
           <SidebarItem
             key={s.streamer.twitch}
@@ -61,6 +61,13 @@ export const Sidebar = () => {
           Multiplex
         </SidebarItem>
       </div>
+      <a
+        href="https://twitter.com/PaucotMartin"
+        target="_blank"
+        className="block text-center"
+      >
+        Made with ❤ by @PaucotMartin
+      </a>
     </div>
   );
 };
