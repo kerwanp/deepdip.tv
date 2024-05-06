@@ -114,6 +114,18 @@ const config: Config = {
       language: "en",
       trackmania: "b05db0f8-d845-47d2-b0e5-795717038ac6",
     },
+    {
+      displayName: "mtat_tm",
+      twitch: "mtat_tm",
+      language: "en",
+      trackmania: "fc54a67c-7bd3-4b33-aa7d-a77f13a7b621",
+    },
+    {
+      displayName: "cll0verr",
+      twitch: "cll0verr",
+      language: "en",
+      trackmania: "076d23a5-51a6-48aa-8d99-9d618cd13c93",
+    },
   ],
 };
 

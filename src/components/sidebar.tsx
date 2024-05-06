@@ -19,7 +19,7 @@ export const Sidebar = () => {
   });
 
   return (
-    <div className="px-4 py-4 flex flex-col gap-8 w-[300px]">
+    <div className="px-4 py-4 flex flex-col gap-8 w-[300px] max-h-screen">
       <div className="flex justify-center">
         <Image
           src="/logo.png"
@@ -30,29 +30,34 @@ export const Sidebar = () => {
         />
       </div>
       <div className="flex flex-1 flex-col gap-2">
-        {streamers.map((s) => (
-          <SidebarItem
-            key={s.streamer.twitch}
-            href={`/${s.streamer.twitch}`}
-            aria-selected={pathname === `/${s.streamer.twitch}`}
-          >
-            <div className="flex-1 flex gap-2 items-center">
-              <span
-                className={cn("inline-block w-4 h-4 rounded-full bg-primary", {
-                  "bg-primary group-hover:bg-white group-aria-selected:bg-white":
-                    s.stream,
-                  "bg-destructive": !s.stream,
-                })}
-              />
-              {s.streamer.displayName}
-            </div>
-            {s.leaderboard && (
-              <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
-                {Math.floor(s.leaderboard.height)}M
+        <div className="overflow-y-auto">
+          {streamers.map((s) => (
+            <SidebarItem
+              key={s.streamer.twitch}
+              href={`/${s.streamer.twitch}`}
+              aria-selected={pathname === `/${s.streamer.twitch}`}
+            >
+              <div className="flex-1 flex gap-2 items-center">
+                <span
+                  className={cn(
+                    "inline-block w-4 h-4 rounded-full bg-primary",
+                    {
+                      "bg-primary group-hover:bg-white group-aria-selected:bg-white":
+                        s.stream,
+                      "bg-destructive": !s.stream,
+                    },
+                  )}
+                />
+                {s.streamer.displayName}
               </div>
-            )}
-          </SidebarItem>
-        ))}
+              {s.leaderboard && (
+                <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
+                  {Math.floor(s.leaderboard.height)}M
+                </div>
+              )}
+            </SidebarItem>
+          ))}{" "}
+        </div>
         <SidebarItem
           href="/"
           className="mt-4 justify-center bg-white/10"
