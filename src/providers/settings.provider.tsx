@@ -2,13 +2,13 @@
 
 import config, { Streamer } from "@/config";
 import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import { useStreamers } from "./streamers.provider";
+import { StreamerData } from "@/lib/api";
 
 type SettingsState = {
   languages: string[];
   setLanguages: (languages: string[]) => void;
-  streamers: string[];
-  setStreamers: (streamers: string[]) => void;
-  shownStreamers: Streamer[];
+  shownStreamers: StreamerData[];
 };
 
 const SettingsContext = createContext<SettingsState | null>(null);
@@ -19,20 +19,17 @@ type SettingsProviderProps = {
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [languages, setLanguages] = useState<string[]>([]);
-  const [streamers, setStreamers] = useState<string[]>(
-    config.streamers.map((s) => s.twitch),
-  );
+
+  const { streamers } = useStreamers();
 
   const shownStreamers = useMemo(() => {
-    let shownStreamers = config.streamers;
+    let shownStreamers = streamers.filter((s) => !!s.stream);
 
     if (languages.length) {
       shownStreamers = shownStreamers.filter((s) =>
-        languages.includes(s.language),
+        languages.includes(s.streamer.language),
       );
     }
-
-    shownStreamers = shownStreamers.filter((s) => streamers.includes(s.twitch));
 
     return shownStreamers;
   }, [languages, streamers]);
@@ -42,8 +39,6 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
       value={{
         languages,
         setLanguages,
-        streamers,
-        setStreamers,
         shownStreamers,
       }}
     >

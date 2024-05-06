@@ -37,7 +37,10 @@ export const Mosaic = () => {
   return (
     <div className={cn("grid h-screen", className)}>
       {streamers.map((streamer) => (
-        <LiveStream key={streamer.displayName} channel={streamer.twitch!} />
+        <LiveStream
+          key={streamer.streamer.twitch}
+          channel={streamer.streamer.twitch}
+        />
       ))}
     </div>
   );

@@ -34,14 +34,12 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <SettingsProvider>
-          <StreamersProvider streamers={streamers}>
-            <div className="min-h-screen flex">
-              <Sidebar />
-              {children}
-            </div>
-          </StreamersProvider>
-        </SettingsProvider>
+        <StreamersProvider streamers={streamers}>
+          <div className="min-h-screen flex">
+            <Sidebar />
+            {children}
+          </div>
+        </StreamersProvider>
         <Analytics />
       </body>
     </html>
