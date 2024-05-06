@@ -1,7 +1,11 @@
-import { fetchStreamersData } from "@/lib/api";
+import { Overlay } from "@/components/overlay";
+import { Mosaic } from "@/components/twitch/mosaic";
 
-export default async function Home() {
-  const test = await fetchStreamersData();
-
-  return <main></main>;
+export default function Page() {
+  return (
+    <main className="flex-1">
+      <Overlay />
+      <Mosaic />
+    </main>
+  );
 }

@@ -54,9 +54,9 @@ export const Sidebar = () => {
           </SidebarItem>
         ))}
         <SidebarItem
-          href="/multiplex"
+          href="/"
           className="mt-4 justify-center bg-white/10"
-          aria-selected={pathname === "/multiplex"}
+          aria-selected={pathname === "/"}
         >
           Multiplex
         </SidebarItem>
