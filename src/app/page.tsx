@@ -1,9 +1,7 @@
-import { Mosaic } from "@/components/twitch/mosaic";
+import { fetchStreamersData } from "@/lib/api";
 
-export default function Home() {
-  return (
-    <main>
-      <Mosaic />
-    </main>
-  );
+export default async function Home() {
+  const test = await fetchStreamersData();
+
+  return <main></main>;
 }

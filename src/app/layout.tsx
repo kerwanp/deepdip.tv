@@ -5,6 +5,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Overlay } from "@/components/overlay";
 import { SettingsProvider } from "@/providers/settings.provider";
+import { Sidebar } from "@/components/sidebar";
+import { StreamersProvider } from "@/providers/streamers.provider";
+import { fetchStreamersData } from "@/lib/api";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -16,11 +19,13 @@ export const metadata: Metadata = {
   description: "Multiplex for Deep Dip 2",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const streamers = await fetchStreamersData();
+
   return (
     <html lang="en">
       <body
@@ -30,8 +35,12 @@ export default function RootLayout({
         )}
       >
         <SettingsProvider>
-          <Overlay />
-          {children}
+          <StreamersProvider streamers={streamers}>
+            <div className="min-h-screen flex">
+              <Sidebar />
+              {children}
+            </div>
+          </StreamersProvider>
         </SettingsProvider>
         <Analytics />
       </body>
