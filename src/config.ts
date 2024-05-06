@@ -108,6 +108,12 @@ const config: Config = {
       language: "en",
       trackmania: "ce9e4eb6-be30-429c-9487-20ce620c2de8",
     },
+    {
+      displayName: "Massa.4PF",
+      twitch: "massa",
+      language: "en",
+      trackmania: "b05db0f8-d845-47d2-b0e5-795717038ac6",
+    },
   ],
 };
 
