@@ -96,6 +96,12 @@ const config: Config = {
       language: "en",
       trackmania: "e387f7d8-afb0-4bf6-bb29-868d1a62de3b",
     },
+    {
+      displayName: "eLconn21",
+      twitch: "elconn21",
+      language: "en",
+      trackmania: "d46fb45d-d422-47c9-9785-67270a311e25",
+    },
   ],
 };
 
