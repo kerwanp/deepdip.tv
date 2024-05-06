@@ -102,6 +102,12 @@ const config: Config = {
       language: "en",
       trackmania: "d46fb45d-d422-47c9-9785-67270a311e25",
     },
+    {
+      displayName: "Jave.4PF",
+      twitch: "JaveTheDeemon",
+      language: "en",
+      trackmania: "ce9e4eb6-be30-429c-9487-20ce620c2de8",
+    },
   ],
 };
 
