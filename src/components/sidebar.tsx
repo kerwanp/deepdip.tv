@@ -9,12 +9,28 @@ import { usePathname } from "next/navigation";
 import { ComponentProps } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Button } from "./ui/button";
+import { MicVocal } from "lucide-react";
 
 export const Sidebar = () => {
   let { streamers } = useStreamers();
   const pathname = usePathname();
 
-  streamers = streamers.sort((a, b) => b.currentHeight - a.currentHeight);
+  streamers = streamers;
+  streamers
+    .sort((a, b) =>
+      a.streamer.displayName.localeCompare(b.streamer.displayName),
+    )
+    .sort((a, b) => {
+      return b.currentHeight - a.currentHeight;
+    })
+    .sort((a, b) =>
+      a.streamer.casting === b.streamer.casting
+        ? 0
+        : a.streamer.casting
+          ? -1
+          : 1,
+    )
+    .sort((a, b) => (a.online === b.online ? 0 : a.online ? -1 : 1));
 
   return (
     <div className="px-4 py-6 flex flex-col gap-4 w-[300px] max-h-screen">
@@ -47,6 +63,9 @@ export const Sidebar = () => {
                   )}
                 />
                 {s.streamer.displayName}
+                {s.streamer.casting && (
+                  <MicVocal className="w-4 h-4 text-white/60" />
+                )}
               </div>
               {s.currentHeight > 0 && (
                 <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">

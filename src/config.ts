@@ -18,6 +18,7 @@ export type Streamer = {
   twitch: string;
   trackmania: string;
   youtube?: string;
+  casting?: boolean;
 };
 
 const config: Config = {
@@ -191,6 +192,20 @@ const config: Config = {
       twitch: "majijej",
       language: "en",
       trackmania: "bfcf62ff-0f9e-40aa-b924-11b9c70b8a09",
+    },
+    {
+      displayName: "Jnic",
+      twitch: "jnic",
+      language: "en",
+      trackmania: "none",
+      casting: true,
+    },
+    {
+      displayName: "SBVille",
+      twitch: "sbville",
+      language: "en",
+      trackmania: "none",
+      casting: true,
     },
   ],
 };
