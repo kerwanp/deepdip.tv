@@ -80,12 +80,18 @@ export const Sidebar = () => {
             <h3 className="text-xl font-bold text-center mb-6">Donate</h3>
             <div className="grid grid-cols-2 gap-3">
               <Button asChild>
-                <a href="https://matcherino.com/tournaments/111501">
+                <a
+                  href="https://matcherino.com/tournaments/111501"
+                  target="_blank"
+                >
                   Donate to Prizepool
                 </a>
               </Button>
               <Button asChild>
-                <a href="https://www.gofundme.com/f/deep-dip-ii-mappers">
+                <a
+                  href="https://www.gofundme.com/f/deep-dip-ii-mappers"
+                  target="_blank"
+                >
                   Donate to Organizers
                 </a>
               </Button>
