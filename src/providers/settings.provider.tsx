@@ -1,6 +1,5 @@
 "use client";
 
-import config, { Streamer } from "@/config";
 import { ReactNode, createContext, useContext, useMemo, useState } from "react";
 import { useStreamers } from "./streamers.provider";
 import { StreamerData } from "@/lib/api";

@@ -17,15 +17,14 @@ export function fetchLeaderboard(): Promise<Leaderboard> {
 export type LiveHeight = {
   display_name: string;
   user_id: string;
-  last_5_points: [number, number][];
+  height: number;
 };
 
-export function fetchLiveHeight(
-  trackmaniaId: string,
-): Promise<LiveHeight | null> {
-  return fetch(`https://dips-plus-plus.xk.io/live_heights/${trackmaniaId}`, {
-    next: { revalidate: 30 },
-  })
-    .then((r) => r.json())
-    .catch((e) => null);
+export function fetchLiveHeights(): Promise<LiveHeight[]> {
+  return fetch(`https://dips-plus-plus.xk.io/live_heights/global`, {
+    next: { revalidate: 15 },
+    headers: {
+      "User-Agent": "deepdip.tv;kerwan.",
+    },
+  }).then((r) => r.json());
 }

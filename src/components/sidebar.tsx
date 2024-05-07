@@ -46,9 +46,11 @@ export const Sidebar = () => {
                 />
                 {s.streamer.displayName}
               </div>
-              <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
-                {s.currentHeight > 0 ? `${s.currentHeight}M` : "N/A"}
-              </div>
+              {s.currentHeight > 0 && (
+                <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
+                  {s.currentHeight}M
+                </div>
+              )}
             </SidebarItem>
           ))}
         </div>
