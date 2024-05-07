@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://deepdip.tv/sitemap.xml

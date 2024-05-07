@@ -1,12 +1,28 @@
 import { TwitchChat } from "@/components/twitch/twitch-chat";
 import { TwitchPlayer } from "@/components/twitch/twitch-player";
 import config from "@/config";
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 type PageProps = {
   params: { streamer: string };
 };
+
+export function generateMetadata({ params }: PageProps): Metadata {
+  const streamer = config.streamers.find((s) => s.twitch === params.streamer);
+
+  if (!streamer) {
+    return {};
+  }
+
+  return {
+    title: `Deep Dip TV - ${streamer.displayName}`,
+    description: `Follow ${streamer.displayName} climbing the Deep Dip 2 tower.`,
+  };
+}
+
+export const metadata: Metadata = {};
 
 export default function Page({ params }: PageProps) {
   const streamer = config.streamers.find((s) => s.twitch === params.streamer);
