@@ -8,6 +8,8 @@ import { StreamerData } from "@/lib/api";
 type SettingsState = {
   languages: string[];
   setLanguages: (languages: string[]) => void;
+  shown: string[];
+  setShown: (shown: string[]) => void;
   shownStreamers: StreamerData[];
 };
 
@@ -18,9 +20,12 @@ type SettingsProviderProps = {
 };
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
-  const [languages, setLanguages] = useState<string[]>([]);
-
   const { streamers } = useStreamers();
+
+  const [languages, setLanguages] = useState<string[]>([]);
+  const [shown, setShown] = useState<string[]>(
+    streamers.map((s) => s.streamer.twitch),
+  );
 
   const shownStreamers = useMemo(() => {
     let shownStreamers = streamers.filter((s) => s.online);
@@ -31,8 +36,12 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
       );
     }
 
+    shownStreamers = shownStreamers.filter((s) =>
+      shown.includes(s.streamer.twitch),
+    );
+
     return shownStreamers;
-  }, [languages, streamers]);
+  }, [languages, streamers, shown]);
 
   return (
     <SettingsContext.Provider
@@ -40,6 +49,8 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
         languages,
         setLanguages,
         shownStreamers,
+        shown,
+        setShown,
       }}
     >
       {children}

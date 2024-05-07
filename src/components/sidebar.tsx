@@ -50,7 +50,7 @@ export const Sidebar = () => {
                 {s.currentHeight > 0 ? `${s.currentHeight}M` : "N/A"}
               </div>
             </SidebarItem>
-          ))}{" "}
+          ))}
         </div>
         <SidebarItem
           href="/"

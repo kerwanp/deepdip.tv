@@ -16,20 +16,28 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
 export const Overlay = () => {
-  const { languages, setLanguages } = useSettings();
+  const { languages, setLanguages, shown, setShown } = useSettings();
 
   const { register, watch } = useForm({
     defaultValues: {
       languages,
+      shown,
     },
     mode: "onChange",
   });
 
+  console.log(shown);
+
   const languagesWatcher = watch("languages");
+  const shownWatcher = watch("shown");
 
   useEffect(() => {
     setLanguages(languagesWatcher);
   }, [languagesWatcher, setLanguages]);
+
+  useEffect(() => {
+    setShown(shownWatcher);
+  }, [shownWatcher, setShown]);
 
   return (
     <div className="w-screen fixed top-0 left-0 flex justify-end items-center p-4 z-50">
@@ -58,6 +66,28 @@ export const Overlay = () => {
                       value={language.id}
                     />
                     <Label htmlFor={language.id}>{language.label}</Label>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="font-lg font-bold mb-3">Streamers</div>
+              <div className="flex flex-col gap-y-2">
+                {config.streamers.map((streamer, i) => (
+                  <div
+                    key={streamer.twitch}
+                    className="flex items-center space-x-2"
+                  >
+                    <input
+                      id={streamer.twitch}
+                      className="cursor-pointer peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                      type="checkbox"
+                      {...register("shown")}
+                      value={streamer.twitch}
+                    />
+                    <Label htmlFor={streamer.twitch}>
+                      {streamer.displayName}
+                    </Label>
                   </div>
                 ))}
               </div>
