@@ -64,7 +64,7 @@ export const Sidebar = () => {
                 />
                 {s.streamer.displayName}
                 {s.streamer.casting && (
-                  <MicVocal className="w-4 h-4 text-white/60" />
+                  <MicVocal className="w-4 h-4 text-white/60 group-hover:text-black group-aria-selected:text-black" />
                 )}
               </div>
               {s.currentHeight > 0 && (
