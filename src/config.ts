@@ -180,6 +180,12 @@ const config: Config = {
       language: "en",
       trackmania: "c1e8bbec-8bb3-40b3-9b0e-52e3cb36015e",
     },
+    {
+      displayName: "Talliebird",
+      twitch: "talliebird",
+      language: "en",
+      trackmania: "a4699c4c-e6c1-4005-86f6-55888f854e6f",
+    },
   ],
 };
 
