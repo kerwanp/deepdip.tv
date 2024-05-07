@@ -186,6 +186,12 @@ const config: Config = {
       language: "en",
       trackmania: "a4699c4c-e6c1-4005-86f6-55888f854e6f",
     },
+    {
+      displayName: "Majijej",
+      twitch: "majijej",
+      language: "en",
+      trackmania: "bfcf62ff-0f9e-40aa-b924-11b9c70b8a09",
+    },
   ],
 };
 
