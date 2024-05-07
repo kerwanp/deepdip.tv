@@ -23,7 +23,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const { streamers } = useStreamers();
 
   const shownStreamers = useMemo(() => {
-    let shownStreamers = streamers.filter((s) => !!s.stream);
+    let shownStreamers = streamers.filter((s) => s.online);
 
     if (languages.length) {
       shownStreamers = shownStreamers.filter((s) =>

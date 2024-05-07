@@ -163,12 +163,6 @@ const config: Config = {
       trackmania: "794a286c-44d9-4276-83ce-431cba7bab74",
     },
     {
-      displayName: "F9.Marius89",
-      twitch: "marius89tm",
-      language: "en",
-      trackmania: "794a286c-44d9-4276-83ce-431cba7bab74",
-    },
-    {
       displayName: "Karlberg",
       twitch: "karlberg",
       language: "en",
