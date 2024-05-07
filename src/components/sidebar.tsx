@@ -47,17 +47,24 @@ export const Sidebar = () => {
                 {s.streamer.displayName}
               </div>
               <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
-                {s.currentHeight}M
+                {s.currentHeight > 0 ? `${s.currentHeight}M` : "N/A"}
               </div>
             </SidebarItem>
           ))}{" "}
         </div>
         <SidebarItem
           href="/"
-          className="mt-4 justify-center bg-white/10"
+          className="justify-center bg-white/10"
           aria-selected={pathname === "/"}
         >
           Multiplex
+        </SidebarItem>
+        <SidebarItem
+          href="/top"
+          className="justify-center bg-white/10"
+          aria-selected={pathname === "/top"}
+        >
+          Top climber
         </SidebarItem>
       </div>
       <a

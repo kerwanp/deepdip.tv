@@ -174,6 +174,12 @@ const config: Config = {
       language: "en",
       trackmania: "05477e79-25fd-48c2-84c7-e1621aa46517",
     },
+    {
+      displayName: "SkandeaR",
+      twitch: "skandear",
+      language: "en",
+      trackmania: "c1e8bbec-8bb3-40b3-9b0e-52e3cb36015e",
+    },
   ],
 };
 

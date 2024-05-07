@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Overlay } from "@/components/overlay";
-import { SettingsProvider } from "@/providers/settings.provider";
 import { Sidebar } from "@/components/sidebar";
 import { StreamersProvider } from "@/providers/streamers.provider";
 import { fetchStreamersData } from "@/lib/api";
