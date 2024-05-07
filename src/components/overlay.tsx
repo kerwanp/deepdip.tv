@@ -53,7 +53,7 @@ export const Overlay = () => {
             <div>
               <div className="font-lg font-bold mb-3">Languages</div>
               <div className="flex flex-col gap-y-2">
-                {config.languages.map((language, i) => (
+                {config.languages.map((language) => (
                   <div
                     key={language.id}
                     className="flex items-center space-x-2"
@@ -73,23 +73,25 @@ export const Overlay = () => {
             <div>
               <div className="font-lg font-bold mb-3">Streamers</div>
               <div className="flex flex-col gap-y-2">
-                {config.streamers.map((streamer, i) => (
-                  <div
-                    key={streamer.twitch}
-                    className="flex items-center space-x-2"
-                  >
-                    <input
-                      id={streamer.twitch}
-                      className="cursor-pointer peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                      type="checkbox"
-                      {...register("shown")}
-                      value={streamer.twitch}
-                    />
-                    <Label htmlFor={streamer.twitch}>
-                      {streamer.displayName}
-                    </Label>
-                  </div>
-                ))}
+                {config.streamers
+                  .sort((a, b) => a.displayName.localeCompare(b.displayName))
+                  .map((streamer) => (
+                    <div
+                      key={streamer.twitch}
+                      className="flex items-center space-x-2"
+                    >
+                      <input
+                        id={streamer.twitch}
+                        className="cursor-pointer peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                        type="checkbox"
+                        {...register("shown")}
+                        value={streamer.twitch}
+                      />
+                      <Label htmlFor={streamer.twitch}>
+                        {streamer.displayName}
+                      </Label>
+                    </div>
+                  ))}
               </div>
             </div>
           </form>
