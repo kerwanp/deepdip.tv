@@ -22,8 +22,6 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export const metadata: Metadata = {};
-
 export default function Page({ params }: PageProps) {
   const streamer = config.streamers.find((s) => s.twitch === params.streamer);
 
