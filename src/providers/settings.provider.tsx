@@ -40,6 +40,10 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
       shown.includes(s.streamer.twitch),
     );
 
+    shownStreamers.sort((a, b) =>
+      a.streamer.twitch.localeCompare(b.streamer.twitch),
+    );
+
     return shownStreamers;
   }, [languages, streamers, shown]);
 
