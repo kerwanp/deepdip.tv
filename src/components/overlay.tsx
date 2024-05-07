@@ -26,8 +26,6 @@ export const Overlay = () => {
     mode: "onChange",
   });
 
-  console.log(shown);
-
   const languagesWatcher = watch("languages");
   const shownWatcher = watch("shown");
 

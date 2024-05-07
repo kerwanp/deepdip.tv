@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ComponentProps } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { Button } from "./ui/button";
 
 export const Sidebar = () => {
   let { streamers } = useStreamers();
@@ -15,11 +17,11 @@ export const Sidebar = () => {
   streamers = streamers.sort((a, b) => b.currentHeight - a.currentHeight);
 
   return (
-    <div className="px-4 py-4 flex flex-col gap-8 w-[300px] max-h-screen">
+    <div className="px-4 py-6 flex flex-col gap-4 w-[300px] max-h-screen">
       <div className="flex justify-center">
         <Image
           src="/logo.png"
-          className="invert"
+          className="invert mb-2"
           width="200"
           height="100"
           alt="Deep Dip 2"
@@ -68,6 +70,28 @@ export const Sidebar = () => {
         >
           Top climber
         </SidebarItem>
+        <Dialog>
+          <DialogTrigger asChild>
+            <button className="group flex font-semibold items-center justify-center bg-white/10 gap-2 px-3 py-2 rounded-md transition-all duration-75 hover:bg-primary hover:text-black aria-selected:bg-primary aria-selected:text-black">
+              Donate
+            </button>
+          </DialogTrigger>
+          <DialogContent>
+            <h3 className="text-xl font-bold text-center mb-6">Donate</h3>
+            <div className="grid grid-cols-2 gap-3">
+              <Button asChild>
+                <a href="https://matcherino.com/tournaments/111501">
+                  Donate to Prizepool
+                </a>
+              </Button>
+              <Button asChild>
+                <a href="https://www.gofundme.com/f/deep-dip-ii-mappers">
+                  Donate to Organizers
+                </a>
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
       <a
         href="https://twitter.com/PaucotMartin"
