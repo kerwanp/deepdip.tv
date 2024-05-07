@@ -74,3 +74,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 0.2rem;
+  scrollbar-gutter: both-edges;
+  left: -100px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: solid 3px transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 50px;
+  border: solid 3px transparent;
+}

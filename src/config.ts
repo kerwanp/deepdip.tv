@@ -126,6 +126,60 @@ const config: Config = {
       language: "en",
       trackmania: "076d23a5-51a6-48aa-8d99-9d618cd13c93",
     },
+    {
+      displayName: "RafTorTV",
+      twitch: "raftortv",
+      language: "en",
+      trackmania: "0e386730-ea74-4e39-8cec-b26c6e7ebb83",
+    },
+    {
+      displayName: "jxliano",
+      twitch: "jxliano",
+      language: "en",
+      trackmania: "ed14ac85-1252-4cc7-8efd-49cd72938f9d",
+    },
+    {
+      displayName: "simo_900",
+      twitch: "simo_900",
+      language: "en",
+      trackmania: "803695f6-8319-4b8e-8c28-44856834fe3b",
+    },
+    {
+      displayName: "Spammiej",
+      twitch: "spammiej",
+      language: "en",
+      trackmania: "3bb0d130-637d-46a6-9c19-87fe4bda3c52",
+    },
+    {
+      displayName: "Samifying",
+      twitch: "samifying",
+      language: "en",
+      trackmania: "f37147a8-36f3-4c58-9577-bf0faff3aafa",
+    },
+    {
+      displayName: "F9.Marius89",
+      twitch: "marius89tm",
+      language: "en",
+      trackmania: "794a286c-44d9-4276-83ce-431cba7bab74",
+    },
+    {
+      displayName: "F9.Marius89",
+      twitch: "marius89tm",
+      language: "en",
+      trackmania: "794a286c-44d9-4276-83ce-431cba7bab74",
+    },
+    {
+      displayName: "Karlberg",
+      twitch: "karlberg",
+      language: "en",
+      trackmania: "db3affaa-a69b-4c48-aa48-0d1216e257af",
+    },
+    {
+      displayName: "GranaDy",
+      twitch: "granadyy",
+      language: "en",
+      trackmania: "05477e79-25fd-48c2-84c7-e1621aa46517",
+    },
   ],
 };
 

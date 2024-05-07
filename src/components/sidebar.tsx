@@ -12,11 +12,7 @@ export const Sidebar = () => {
   let { streamers } = useStreamers();
   const pathname = usePathname();
 
-  streamers = streamers.sort((a, b) => {
-    if (!a.leaderboard || !b.leaderboard) return 0;
-
-    return b.leaderboard.height - a.leaderboard.height;
-  });
+  streamers = streamers.sort((a, b) => b.currentHeight - a.currentHeight);
 
   return (
     <div className="px-4 py-4 flex flex-col gap-8 w-[300px] max-h-screen">
@@ -29,7 +25,7 @@ export const Sidebar = () => {
           alt="Deep Dip 2"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-2">
+      <div className="flex flex-1 flex-col gap-2 overflow-y-auto">
         <div className="overflow-y-auto">
           {streamers.map((s) => (
             <SidebarItem
@@ -43,18 +39,16 @@ export const Sidebar = () => {
                     "inline-block w-4 h-4 rounded-full bg-primary",
                     {
                       "bg-primary group-hover:bg-white group-aria-selected:bg-white":
-                        s.stream,
-                      "bg-destructive": !s.stream,
+                        s.online,
+                      "bg-destructive": !s.online,
                     },
                   )}
                 />
                 {s.streamer.displayName}
               </div>
-              {s.leaderboard && (
-                <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
-                  {Math.floor(s.leaderboard.height)}M
-                </div>
-              )}
+              <div className="font-normal text-muted-foreground group-hover:text-black group-aria-selected:text-black">
+                {s.currentHeight}M
+              </div>
             </SidebarItem>
           ))}{" "}
         </div>

@@ -25,10 +25,10 @@ export const StreamersProvider = (props: StreamersProviderProps) => {
 
   useEffect(() => {
     setInterval(() => {
-      fetch("/api/streamers")
+      fetch("/api/streamers", { next: { revalidate: 15 } })
         .then((r) => r.json())
         .then((d) => setStreamers(d));
-    }, 30000);
+    }, 15000);
   }, []);
 
   return (
