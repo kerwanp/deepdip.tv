@@ -32,9 +32,7 @@ export const Mosaic = ({ streamers }: MosaicProps) => {
       return "md:grid-cols-3 lg:grid-cols-3 lg:grid-rows-3";
     }
 
-    if (streamers.length <= 12) {
-      return "md:grid-cols-3 md:grid-row-3 lg:grid-cols-4 lg:grid-rows-3";
-    }
+    return "md:grid-cols-3 md:grid-row-3 lg:grid-cols-4 lg:grid-rows-3";
   }, [streamers]);
 
   return (
