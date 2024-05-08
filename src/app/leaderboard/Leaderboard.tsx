@@ -78,7 +78,7 @@ const LeaderboardItem = ({ children, height, rank, trackmania }: LeaderboardItem
     layout href={href}
     target={target}
     className={cn(
-      "border border-transparent bg-black flex items-center rounded-md py-3 px-4 flex gap-2 hover:bg-primary hover:text-primary-foreground transition-colors duration-75",
+      "group border border-transparent bg-black items-center rounded-md py-3 px-4 flex gap-2 hover:bg-primary hover:text-primary-foreground transition-colors duration-75",
       {
         "border-yellow-500": rank === 1,
         "border-slate-400": rank === 2,
@@ -91,7 +91,7 @@ const LeaderboardItem = ({ children, height, rank, trackmania }: LeaderboardItem
     {height.toFixed()}M
     <span
       className={cn(
-        "inline-block w-4 h-4 rounded-full bg-primary bg-muted",
+        "inline-block w-4 h-4 rounded-full bg-muted",
         {
           "bg-primary group-hover:bg-white group-aria-selected:bg-white":
             streamer?.online,
