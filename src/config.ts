@@ -207,6 +207,20 @@ const config: Config = {
       trackmania: "none",
       casting: true,
     },
+    {
+      displayName: "Vaelyn",
+      twitch: "vaelyn",
+      language: "en",
+      trackmania: "none",
+      casting: true,
+    },
+    {
+      displayName: "Tekky",
+      twitch: "tekky",
+      language: "en",
+      trackmania: "none",
+      casting: true,
+    },
   ],
 };
 
