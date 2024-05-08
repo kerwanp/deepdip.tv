@@ -36,7 +36,7 @@ export default function Page({ params }: PageProps) {
         ))}
       </TabsList>
       {shown.map((s) => (
-        <TabsContent className="flex-1 w-[350px]" value={s.streamer.twitch}>
+        <TabsContent key={s.streamer.twitch} className="flex-1 w-[350px]" value={s.streamer.twitch}>
           <TwitchChat channel={s.streamer.twitch} height="100%" />
         </TabsContent>
       ))}
