@@ -6,11 +6,15 @@ export type UserLeaderboard = {
   height: number;
   ts: number;
   name: string;
+  update_count: number;
 };
 
 export function fetchLeaderboard(): Promise<Leaderboard> {
-  return fetch("https://api.deepdip2.com/leaderboard", {
-    next: { revalidate: 30 },
+  return fetch("https://dips-plus-plus.xk.io/leaderboard/global", {
+    next: { revalidate: 60 },
+    headers: {
+      "User-Agent": "deepdip.tv;kerwan.",
+    },
   }).then((r) => r.json());
 }
 

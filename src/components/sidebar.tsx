@@ -38,8 +38,8 @@ export const Sidebar = () => {
         <Image
           src="/logo.png"
           className="invert mb-2"
-          width="200"
-          height="100"
+          width="150"
+          height="50"
           alt="Deep Dip 2"
         />
       </div>
@@ -89,6 +89,13 @@ export const Sidebar = () => {
         >
           Top climber
         </SidebarItem>
+        <SidebarItem
+          href="/leaderboard"
+          className="justify-center bg-white/10"
+          aria-selected={pathname === "/leaderboard"}
+        >
+          Leaderboard
+        </SidebarItem>
         <Dialog>
           <DialogTrigger asChild>
             <button className="group flex font-semibold items-center justify-center bg-white/10 gap-2 px-3 py-2 rounded-md transition-all duration-75 hover:bg-primary hover:text-black aria-selected:bg-primary aria-selected:text-black">
@@ -136,7 +143,7 @@ const SidebarItem = ({ className, ...props }: SidebarItemProps) => {
     <MotionLink
       layout
       className={cn(
-        "group flex font-semibold items-center gap-2 px-3 py-2 rounded-md transition-all duration-75 hover:bg-primary hover:text-black aria-selected:bg-primary aria-selected:text-black",
+        "group text-sm flex font-semibold items-center gap-2 px-3 py-2 rounded-md transition-all duration-75 hover:bg-primary hover:text-black aria-selected:bg-primary aria-selected:text-black",
         className,
       )}
       {...props}
