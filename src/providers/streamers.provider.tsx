@@ -21,12 +21,13 @@ export type StreamersProviderProps = {
 };
 
 export const StreamersProvider = (props: StreamersProviderProps) => {
-  const [streamers, setStreamers] = useState(props.streamers);
+  const [streamers, setStreamers] = useState(props.streamers.sort((a, b) => a.streamer.twitch.localeCompare(b.streamer.twitch)));
 
   useEffect(() => {
     setInterval(() => {
       fetch("/api/streamers", { next: { revalidate: 15 } })
         .then((r) => r.json())
+        .then((s: StreamerData[]) => s.sort((a, b) => a.streamer.twitch.localeCompare(b.streamer.twitch)))
         .then((d) => setStreamers(d));
     }, 15000);
   }, []);

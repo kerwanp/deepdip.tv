@@ -1,12 +1,15 @@
 "use client";
 
-import { useSettings } from "@/providers/settings.provider";
 import { LiveStream } from "./live-stream";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+import { StreamerData } from "@/lib/api";
 
-export const Mosaic = () => {
-  const { shownStreamers: streamers } = useSettings();
+type MosaicProps = {
+  streamers: StreamerData[]
+}
+
+export const Mosaic = ({ streamers }: MosaicProps) => {
 
   const className = useMemo(() => {
     if (streamers.length <= 1) {
