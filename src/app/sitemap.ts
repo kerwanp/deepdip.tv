@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://deepdip.tv/leaderboard",
+      lastModified: new Date(),
+      changeFrequency: "always",
+      priority: 0.9,
+    },
+    {
       url: "https://deepdip.tv/top",
       lastModified: new Date(),
       changeFrequency: "always",
