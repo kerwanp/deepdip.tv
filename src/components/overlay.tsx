@@ -1,8 +1,10 @@
 "use client";
 
 import config from "@/config";
+import { useSettings } from "@/providers/settings.provider";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
 import {
   Sheet,
@@ -11,23 +13,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { useSettings } from "@/providers/settings.provider";
-import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
 
 export const Overlay = () => {
-  const { languages, setLanguages, shown, setShown } = useSettings();
+  const { languages, setLanguages, shown, setShown, maxStreams, setMaxStreams } = useSettings();
 
-  const { register, watch } = useForm({
+  const { register, watch, setValue } = useForm({
     defaultValues: {
       languages,
       shown,
+      maxStreams
     },
     mode: "onChange",
   });
 
   const languagesWatcher = watch("languages");
   const shownWatcher = watch("shown");
+  const maxStreamsWatcher = watch("maxStreams");
 
   useEffect(() => {
     setLanguages(languagesWatcher);
@@ -36,6 +38,10 @@ export const Overlay = () => {
   useEffect(() => {
     setShown(shownWatcher);
   }, [shownWatcher, setShown]);
+
+  useEffect(() => {
+    setMaxStreams(maxStreamsWatcher);
+  }, [maxStreamsWatcher, setMaxStreams]);
 
   return (
     <div className="w-screen fixed top-0 left-0 flex justify-end items-center p-4 z-50">
@@ -90,6 +96,23 @@ export const Overlay = () => {
                       </Label>
                     </div>
                   ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="font-lg font-bold mb-3">Max streams</div>
+              <div className="flex flex-col gap-y-2">
+                <ToggleGroup
+                  type="single"
+                  className="justify-normal"
+                  value={maxStreamsWatcher.toString()}
+                  onValueChange={(value) => setValue('maxStreams', Number(value))}
+                >
+                  <ToggleGroupItem value="6">6</ToggleGroupItem>
+                  <ToggleGroupItem value="9">9</ToggleGroupItem>
+                  <ToggleGroupItem value="12">12</ToggleGroupItem>
+                  <ToggleGroupItem value="0">All</ToggleGroupItem>
+                </ToggleGroup>
               </div>
             </div>
           </form>

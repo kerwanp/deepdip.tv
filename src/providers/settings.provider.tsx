@@ -1,8 +1,8 @@
 "use client";
 
+import { StreamerData } from "@/lib/api";
 import { ReactNode, createContext, useContext, useMemo, useState } from "react";
 import { useStreamers } from "./streamers.provider";
-import { StreamerData } from "@/lib/api";
 
 type SettingsState = {
   languages: string[];
@@ -10,6 +10,8 @@ type SettingsState = {
   shown: string[];
   setShown: (shown: string[]) => void;
   shownStreamers: StreamerData[];
+  maxStreams: number,
+  setMaxStreams: (maxStreams: number) => void
 };
 
 const SettingsContext = createContext<SettingsState | null>(null);
@@ -22,12 +24,13 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const { streamers } = useStreamers();
 
   const [languages, setLanguages] = useState<string[]>([]);
+  const [maxStreams, setMaxStreams] = useState<number>(9);
   const [shown, setShown] = useState<string[]>(
     streamers.map((s) => s.streamer.twitch),
   );
 
   const shownStreamers = useMemo(() => {
-    let shownStreamers = streamers.filter((s) => s.online);
+    let shownStreamers = streamers.filter((s) => s.online).splice(0, maxStreams || 9);
 
     if (languages.length) {
       shownStreamers = shownStreamers.filter((s) =>
@@ -44,7 +47,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
     );
 
     return shownStreamers;
-  }, [languages, streamers, shown]);
+  }, [languages, streamers, shown, maxStreams]);
 
   return (
     <SettingsContext.Provider
@@ -54,6 +57,8 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
         shownStreamers,
         shown,
         setShown,
+        maxStreams,
+        setMaxStreams
       }}
     >
       {children}
