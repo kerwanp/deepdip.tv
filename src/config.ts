@@ -194,6 +194,18 @@ const config: Config = {
       trackmania: "bfcf62ff-0f9e-40aa-b924-11b9c70b8a09",
     },
     {
+      displayName: "Schmaniol",
+      twitch: "schmaniol",
+      language: "en",
+      trackmania: "0fd26a9f-8f70-4f51-85e1-fe99a4ed6ffb",
+    },
+    {
+      displayName: "Yamii._.",
+      twitch: "yamiitm",
+      language: "en",
+      trackmania: "7dbb1f78-0360-472f-ab09-8037c89e505e",
+    },
+    {
       displayName: "Jnic",
       twitch: "jnic",
       language: "en",
