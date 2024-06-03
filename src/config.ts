@@ -38,12 +38,6 @@ const config: Config = {
   ],
   streamers: [
     {
-      displayName: "WirtualTM",
-      twitch: "wirtual",
-      trackmania: "bd45204c-80f1-4809-b983-38b3f0ffc1ef",
-      language: "en",
-    },
-    {
       displayName: "BrenTM",
       twitch: "bren_tm2",
       language: "en",
